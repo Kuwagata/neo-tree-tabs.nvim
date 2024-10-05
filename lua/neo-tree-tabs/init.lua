@@ -1,13 +1,13 @@
 local renderer = require("neo-tree.ui.renderer")
 local utils = require("neo-tree-tabs.utils")
-local config = require("neo-tree-tabs.config")
+local manager = require("neo-tree.sources.manager")
+local events = require("neo-tree.events")
 
 local M = {
   name = "tabs",
   display_name = "Tabs",
+  config = require("neo-tree-tabs.config"),
 }
-
-M.config = config
 
 M.navigate = function(state)
   local tabs = {}
@@ -63,9 +63,7 @@ M.navigate = function(state)
   renderer.focus_node(state, current, false)
 end
 
----@param opts table Configuration table.
-M.setup = function(opts)
-  -- TODO: Add configuration if needed
-end
+---@param config table Configuration table.
+M.setup = function(config, global_config) end
 
 return M
